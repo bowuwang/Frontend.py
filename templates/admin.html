@@ -2,75 +2,117 @@
 <html>
 <head>
   <link rel="stylesheet" href="/static/css/foradmin.css">
+      <link rel="stylesheet" href="./node_modules/nes.css/css/nes.min.css">
+    <title>login</title>
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/static/css/bootstrap.css">
 
-<style>
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: rgb(193, 230, 225);
-}
+    <style>
+      html, body, pre, code, kbd, samp {
+          font-family: "kongtext";
+          src: url(fonts/kongtext.ttf)
+      }
+    </style>
 
-li {
-  float: left;
-}
-
-li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 80px 60px;
-  text-decoration: none;
-}
-
-li a:hover {
-  background-color: rgb(128, 181, 183);
-}
-</style>
 </head>
 
 
 <body>
+  <div id="flaskdemo">
+    <header :class="{ sticky: scrollPos > 50 }">
+      <div class="container">
+        <div class="nav-brand">
+          <a href="{{url_for('admin')}}">
+            <h1> <i class="snes-jp-logo brand-logo"></i> HOME </h1>
+          </a>
+          <a href="{{url_for('bme')}}">
+            <h1>  <i class="nes-logo"></i>   BME </h1>
+          </a>
+          <a  href="{{url_for('setting')}}">
+            <h1> <i class="nes-jp-logo"></i>   Setting </h1>
+          </a> 
+           
+          <p>Wish you a lucky Day!</p>
+        </div>
 
-<ul>
-  <li><a class="active" href="#home">Home</a></li>
-  <li><a href="#bme">BME</a></li>
-  <li><a href="#contact">Contact</a></li>
-
-</ul>
-<h2><a name="home">first </a></h2>
-
-<div id="home" style="height: 600px;"> here is homepage
-  <div class="container">
-
-    <!-- 左对齐 -->
-    <div class="media">
-      <div class="media-left">
-        <img src="/templates/eg.png"  class="media-object" style="width:200px">
+        <div class="social-buttons">
+          <p>You may wanna see...?</p>
+          <div class="share">
+            <a href="https://twitter.com/" target="_blank"><i class="nes-icon twitter"></i></a>
+            <a href="https://www.facebook.com/" target="_blank"><i class="nes-icon facebook"></i></a>
+            <a href="https://mail.google.com/" target="_blank">  <i class="nes-icon gmail"></i></a>
+            
+          </div>
+        </div>
       </div>
-      <div class="media-body">
-        <h4 class="media-heading">1 </h4>
-        <p>example </p>
-      </div>
-    </div>
-    <hr>
+    </header>
+  </div>
+  <br> <br> <br> <br> <br>  <br> <br> <br> <br> <br> <br> <br> <br>
+
+
+        <div class="container">
+          <main class="main-content">
+            <a class="github-link" :class="{ active:  scrollPos < 200 }" href="https://github.com/nostalgic-css/NES.css" target="_blank" rel="noopener" @mouseover="startAnimate" @mouseout="stopAnimate">
+              <p class="nes-balloon from-right">Fork me<br />on GitHub</p>
+              <i class="nes-octocat" :class="animateOctocat ? 'animate' : ''"></i>
+            </a>
+        </div>
+  
     
-    <!-- 右对齐 -->
-    <div class="media">
-      <div class="media-body">
-        <h4 class="media-heading">2</h4>
-      </div>
-      <div class="media-right">
-        <img src="/templates/eg.png"  class="media-object" style="width: 200px;">
-      </div>
-    </div>
-  </div> </div>
-<p>... ...</p>
-<div id="bme" style="height: 600px;"> here is pic of bme </div>
-<p>... ...</p>
-<div id="contact" style="height: 600px;"> here is our contact </div>
-<p>... ...</p>
+        <!-- todo -->
+        <section class="topic">
+          <h2 id="todo"><a href="#todo">#</a>Todolist </h2>
+          <p>Check your daily todo list</p> 
+          <label>
+            <input type="checkbox" class="nes-checkbox" unchecked />
+            <span>yoga for 1 hour</span>
+          </label>
+          <br>
+          <label>
+            <input type="checkbox" class="nes-checkbox" unchecked />
+            <span>Feed Cat</span>
+          </label>
+          <br>
+          <label>
+            <input type="checkbox" class="nes-checkbox" checked />
+            <span>Take DHl package </span>
+          </label>
+          <br>
+          <label>
+            <input type="checkbox" class="nes-checkbox" unchecked />
+            <span>Have dinner with Wayne </span>
+          </label>
+        </section>
+
+        <section class="topic">
+          <h2 id="Datetime"><a href="#Datetime">#</a>Datetime</h2>
+          <h3 id="text">{{ tm }}</h3 ><br>
+
+          <h2 id="light"><a href="#light">#</a>Check the Light</h2>
+           {% if 16 > th > 8 %}
+            <div>
+              <a class="nes-badge is-icon">
+                <span class="is-dark"><i class="nes-icon is-small star is-empty"></i></span>
+                <span class="is-primary">OFF</span>
+              </a>
+          </div>
+            {% elif th >  16 %}
+            <div> 
+              <a  class="nes-badge is-icon">
+              <span class="is-warning"><i class="nes-icon star is-small"></i></span>
+              <span class="is-primary">ON</span>
+            </a></div>
+            {% endif %}
+        </section>
+
+
+
+       
+
+      
+ 
+
 
 
 </body>

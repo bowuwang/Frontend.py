@@ -1,35 +1,38 @@
-from flask import Flask,render_template,request,redirect
+from flask import Flask,render_template
 
 app = Flask(__name__)
 #路由
 
+import  datetime, time
+tm = datetime.datetime.now()
 
-@app.route('/', methods = ['GET','POST'])#要去访问的路径/
+
+
+
+@app.route('/')#要去访问的路径/
 def login():#这边实现登陆的逻辑
-    print() #request 对象可以拿到前端给的所有数据
-    if request.method == 'POST':
-        username = request.form.get('username')
-        password = request.form.get('password')
-        print('data from server : ',username,password)
+        
 
-
-        return redirect('/admin')
     return render_template('login.html')
 
 @app.route('/admin')
 def admin():
+    tmh=tm.hour
+    timestr=time.strftime('%Y-%m-%d %H:%M:%S')
+   
+    return render_template('admin.html',th=tmh,tm=timestr)
 
-    return render_template('admin.html')
-
-@app.route('/bme')
-def bme():
+@app.route('/bme') 
+def bme(): 
+        
 
     return render_template('bme.html')
 
-@app.route('/eg')
-def contact():
+@app.route('/setting')#要去访问的路径/
+def setting():#这边实现登陆的逻辑
+        
 
-    return render_template('example.html')
+    return render_template('setting.html')
 
 
 

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setting
+    </title>
+    <link rel="stylesheet" href="/static/css/foradmin.css">
+    <link rel="stylesheet" href="./node_modules/nes.css/css/nes.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/static/css/setting.css">
+    
+    <style>
+      html, body, pre, code, kbd, samp {
+          font-family: "kongtext";
+          src: url(fonts/kongtext.ttf)
+      }
+    </style>
+</head>
+<body>
+  <!-- Members -->
+          <section class="topic">
+            <h2 id="members"><a href="#members">#</a>Members</h2>
+            <section class="coreteam">
+              <h3 class="topic-title"><i class="nes-icon star"></i>Core Team Members</h3>
+              <p>Here is core team members developing NES.css.</p>
+
+              <div class="coreteam-members">
+                <template v-for="member in coreteam">
+                  <section class="nes-container is-dark member-card">
+                    <div class="avatar">
+                      <img class="lazy" :data-src="'https://github.com/' + member.github + '.png?size=80'" :alt="'Core Member ' + member.name">
+                    </div>
+                    <div class="profile">
+                      <h4 class="name">{{ member.name }}</h4>
+                      <p>{{ member.feat }}</p>
+                      <div>
+                        <a :href="'https://github.com/' + member.github" target="_blank" rel="noopener" aria-label="github"><i class="nes-icon github"></i></a>
+                        <a v-if="member.twitter" :href="'https://twitter.com/' + member.twitter" target="_blank" rel="noopener" aria-label="twitter"><i class="nes-icon twitter"></i></a>
+                      </div>
+                    </div>
+                  </section>
+                </template>
+              </div>
+            </section>
+            <section class="coreteam-emeriti" v-if="emeriti.length > 0">
+              <h3 class="topic-title"><i class="nes-icon trophy"></i>Core Team Emeriti</h3>
+              <p>Here we honor some no-longer-active core team members.</p>
+
+              <div class="coreteam-members">
+                <template v-for="member in emeriti">
+                  <section class="nes-container is-dark member-card">
+                    <div class="avatar">
+                      <img class="lazy" :data-src="'https://github.com/' + member.github + '.png?size=80'" :alt="'Emeriti ' + member.name">
+                    </div>
+                    <div class="profile">
+                      <h4 class="name">{{ member.name }}</h4>
+                      <p>{{ member.feat }}</p>
+                      <div>
+                        <a :href="'https://github.com/' + member.github" target="_blank" rel="noopener" aria-label="github"><i class="nes-icon github"></i></a>
+                        <a v-if="member.twitter" :href="'https://twitter.com/' + member.twitter" target="_blank" rel="noopener" aria-label="twitter"><i class="nes-icon twitter"></i></a>
+                      </div>
+                    </div>
+                  </section>
+                </template>
+              </div>
+            </section>
+            <section class="contributors">
+              <h3 class="topic-title"><i class="nes-icon heart"></i>Contributors</h3>
+              <template v-for="user in contributors">
+                <a class="contributor" :href="'https://github.com/' + user" target="_black">
+                  <img class="nes-avatar is-large is-rounded lazy" :data-src="'https://github.com/' + user + '.png?size=64'" :alt="'Contributor ' + user">
+                  <p>{{ user }}</p>
+                </a>
+              </template>
+            </section>
+          </section>
+</body>
+</html>

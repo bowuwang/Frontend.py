@@ -1,40 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./node_modules/nes.css/css/nes.min.css">
     <title>login</title>
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
     <link rel="stylesheet" href="/static/css/bootstrap.css">
 
+    <style>
+      html, body, pre, code, kbd, samp {
+          font-family: "kongtext";
+          src: url(fonts/kongtext.ttf)
+      }
+    </style>
 </head>
   
 <body>
+  <form class="row g-3" style="width: 600px; margin: 100px auto;" method="post">     
+        <section class="nes-container">
+          <section class="message-list">
+            <section class="message -left">
+              <i class="nes-bcrikko"></i>
+              <!-- Balloon -->
+              <div class="nes-balloon from-left" >
+                <p>Hello Nina</p>
+              </div>
+            </section>
+            <br>
+            <br>
+           
 
-    <form class="row g-3" style="width: 400px; margin: 100px auto;" method="post">
-        <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Email address</label>
-            <input type="text" 
-            class="form-control" 
-            id="exampleFormControlInput1"
-            name="username"
-             >
-          </div>
-        <div class="col-auto">
-          <label for="inputPassword2" class="visually-hidden">Password</label>
-          <input type="password"
-           class="form-control" 
-           id="inputPassword2" 
-           name="password"
-           >
-        </div>
-        <button type="button" onclick="alert('try again ')">NO it's not me </button>
-        <div class="col-auto">
-          <button type="submit" class="btn btn-primary mb-3">yes,it'me </button>
-        </div>
+        
+            <section class="message -right">
+              <!-- Balloon -->
+              <div class="nes-balloon from-right">
+                <a class="nes-btn" href="{{url_for('admin')}}"  >   &#20&#20&#20   hi   &#20&#20&#20   </a>
+              </div>
+              <i class="nes-bcrikko"></i>
+            </section>
+          </section>
+        </section>
 
-      </form>
-     
 
+  </form>
 </body>
 </html>
